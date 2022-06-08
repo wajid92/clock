@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wajid Clock</title>
+</head>
+
+<body>
+    <nav class="nav"></nav>
+    <div class="container">
+        <div class="second"></div>
+        <div class="minute"></div>
+        <div class="hour"></div>
+    </div>
+</body>
+<style>
+    .second {
+        border-radius: 20%;
+        position: absolute;
+        height: 45%;
+        width: 1%;
+        background-color: black;
+        left: 49.4%;
+        top: 6%;
+        transform-origin: bottom;
+    }
+
+    .minute {
+        border-radius: 20%;
+        position: absolute;
+        height: 35%;
+        width: 2%;
+        background-color: black;
+        left: 49%;
+        top: 15.5%;
+        transform-origin: bottom;
+    }
+
+    .hour {
+        border-radius: 20%;
+        position: absolute;
+        height: 30%;
+        width: 3%;
+        background-color: black;
+        left: 48.5%;
+        top: 20.5%;
+        transform-origin: bottom;
+    }
+
+    .nav {
+        height: 45px;
+        background-color: darkolivegreen;
+    }
+
+    .container {
+        background-image: url("https://icon2.cleanpng.com/20180410/ule/kisspng-clock-face-digital-clock-time-clip-art-clock-5acd5bdf2b84d3.1014648215234078391783.jpg");
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: auto;
+        height: 40vw;
+        margin-top: 2rem;
+        width: 40vw;
+    }
+</style>
+<script>
+    const second=document.querySelector('.second');
+    const minute=document.querySelector('.minute');
+    const hour=document.querySelector('.hour');
+
+    function sertDate(){
+        const now=new Date();
+        const seconds=now.getSeconds();
+        const minutes=now.getMinutes();
+        const hours=now.getHours();
+
+        const secondDegrees=seconds*6;
+        second.style.transform=`rotate(${secondDegrees}deg)`;
+
+        const minutesDegrees=minutes*6;
+        minute.style.transform=`rotate(${minutesDegrees}deg)`;
+
+        const hourDegrees=hours*30+minutes/2;
+        hour.style.transform=`rotate(${hourDegrees}deg)`;
+    }
+    setInterval(sertDate,1000);
+</script>
+</html>
